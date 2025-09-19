@@ -21,10 +21,12 @@ namespace M
 
 	int IOCTL_Code(int var1, int var2, int var3, int var4);
 
-	DWORD64 GetStructPtr(Struct10317* var1);
-	DWORD64 GetStringPtr(string* var1);
-	DWORD64 GetBytePtr(vector<unsigned char> var1);
-	
-	const char* RandomLetter(int var1);
-
+	// DWORD64 GetStructPtr(Struct10317* var1);
+	// DWORD64 GetTextPtr(string* var1);
+	// DWORD64 GetByteArrayPtr(vector<unsigned char> var1);
+										//		|
+	const char* RandomLetter(int var1);	//		|
+										//		|
+	template<typename T>				//	    V
+	auto GetPointer(const T& container) -> decltype(container.data());
 }

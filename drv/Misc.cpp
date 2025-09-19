@@ -269,3 +269,8 @@ const char* M::DynamicName()
 	string result = RandomLetter(3) + to_string(dis(gen)) + RandomLetter(3) + ".sys";
 	return result.c_str();
 }
+
+template<typename T>
+auto M::GetPointer(const T& container) -> decltype(container.data()) {
+	return container.data();
+}
