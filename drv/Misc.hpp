@@ -11,11 +11,11 @@ namespace M
 {
 	using namespace std;
 	bool CreateDriver(string var1, string var2);
-	bool InstallDriver(string var1, string var2);
+	bool InstallDriver(const std::wstring& driverName, const std::wstring& driverPath);
 	int	 IOCTL_IO(int var1);
 	bool StartDriver(string var1, string var2);
 	bool StopDriver(string var1);
-	bool RemoveDriver(string var1);
+	bool RemoveDriver(const std::wstring& var1);
 	int  OpenDevice(string var1);
 	
 	const char* DynamicName(string var1);

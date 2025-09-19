@@ -6,8 +6,11 @@
 namespace D
 {
 	void _Init();
+	bool InstallDrv();
+	bool UninstallDrv();
+	bool ApplyMemory(int PID, int Length);
+	bool ReleaseMemory(int PID, DWORD64 Address);
+
 }
-void _Init() {
-	srand(static_cast<unsigned>(time(nullptr)));
-}
+
 

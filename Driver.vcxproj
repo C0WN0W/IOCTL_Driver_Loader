@@ -126,6 +126,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="drv\DRV.c" />
+    <ClCompile Include="drv\Memory.cpp" />
+    <ClCompile Include="drv\Misc.cpp" />
     <ClCompile Include="drv\struct.hpp" />
     <ClCompile Include="drv\Utils\GlobalVars.cpp" />
   </ItemGroup>
