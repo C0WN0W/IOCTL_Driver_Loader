@@ -173,3 +173,57 @@ bool M::StartDriver(string var1, string var2)
 	else 
 		return false;
 }
+
+bool M::StopDriver(string var1)
+{
+	Struct10318 temp1;
+	SC_HANDLE temp2, temp3;
+
+	temp2 = OpenSCManagerA(0, 0, 1 | 2 | 4 | 8 | 16 | 32);
+	if (!temp2) return false;
+	temp3 = OpenServiceA(temp2, var1.c_str(), 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256);
+	if (!temp3)
+	{
+		CloseServiceHandle(temp2);
+		return false;
+	}
+	if (ControlService(temp3, 4, (LPSERVICE_STATUS)&temp1) != 0)
+	{
+		if (temp1.Member1031F != 1)
+		{
+			if (ControlService(temp3, 1, (LPSERVICE_STATUS)&temp1) == 0)
+			{
+				CloseServiceHandle(temp3);
+				CloseServiceHandle(temp2);
+				return false;
+			}
+			for (int i = 0; i <= 10; ++i)
+			{
+				if (ControlService(temp3, 4, (LPSERVICE_STATUS)&temp1) == 0)
+				{
+					CloseServiceHandle(temp3);
+					CloseServiceHandle(temp2);
+					return true;
+				}
+				else
+				{
+					if (temp1.Member1031F == 1)
+					{
+						break;
+					}
+				}
+				Sleep(4000);
+			}
+			if (temp1.Member1031F != 1)
+			{
+				CloseServiceHandle(temp3);
+				CloseServiceHandle(temp2);
+				return false;
+			}
+		}
+	}
+	CloseServiceHandle(temp3);
+	CloseServiceHandle(temp2);
+	return true;
+}
+
