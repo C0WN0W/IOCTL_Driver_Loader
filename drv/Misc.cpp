@@ -121,6 +121,55 @@ bool M::RemoveDriver(const std::wstring& driverName) {
 bool M::StartDriver(string var1, string var2)
 {
 	Struct10318 temp1;
-	SC_HANDLE temp2, temp3, temp4;
+	SC_HANDLE temp2, temp3;
 
+	if (var1.empty()) return false;
+	if (!CreateDriver(var1, var2)) return false;
+
+	temp2 = OpenSCManagerA(0, 0, 1 | 2 | 4 | 8 | 16 | 32);
+	if (!temp2) return false;
+	temp3 = OpenServiceA(temp2, var1.c_str(), 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256);
+	if (!temp3)
+	{
+		CloseServiceHandle(temp2);
+		return false;
+	}
+	if (ControlService(temp3, 4, (LPSERVICE_STATUS)&temp1))
+	{
+		if (temp1.Member1031F = 4)
+		{
+			CloseServiceHandle(temp3);
+			CloseServiceHandle(temp2);
+			return true;
+		}
+	}
+	else if (!StartServiceA(temp3, 0, 0))
+	{
+		CloseServiceHandle(temp3);
+		CloseServiceHandle(temp2);
+		return false;
+	}
+	for (int i = 0; i <= 10; ++i)
+	{
+		if (ControlService(temp3, 4, (LPSERVICE_STATUS)&temp1) == 0)
+		{
+			CloseServiceHandle(temp3);
+			CloseServiceHandle(temp2);
+			return false;
+		}
+		else
+		{
+			if (temp1.Member1031F == 4)
+			{
+				break;
+			}
+		}
+		Sleep(4000);
+	}
+	CloseServiceHandle(temp3);
+	CloseServiceHandle(temp2);
+	if (temp1.Member1031F == 4) 
+		return true;
+	else 
+		return false;
 }
