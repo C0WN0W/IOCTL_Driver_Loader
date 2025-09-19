@@ -127,13 +127,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="drv\DRV.c" />
-    <ClCompile Include="drv\Memory.cpp" />
+    <ClCompile Include="drv\Export.cpp" />
     <ClCompile Include="drv\Misc.cpp" />
     <ClCompile Include="drv\struct.hpp" />
     <ClCompile Include="drv\Utils\GlobalVars.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="drv\Memory.hpp" />
+    <ClInclude Include="drv\Export.hpp" />
     <ClInclude Include="drv\Misc.hpp" />
     <ClInclude Include="drv\Utils\GlobalVars.hpp" />
   </ItemGroup>

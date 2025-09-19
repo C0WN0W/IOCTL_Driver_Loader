@@ -21,7 +21,7 @@
     <ClCompile Include="drv\Utils\GlobalVars.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="drv\Memory.cpp">
+    <ClCompile Include="drv\Export.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="drv\Misc.cpp">
@@ -32,7 +32,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="drv\Memory.hpp">
+    <ClInclude Include="drv\Export.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="drv\Utils\GlobalVars.hpp">
