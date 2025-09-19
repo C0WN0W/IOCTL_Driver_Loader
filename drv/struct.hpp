@@ -1,6 +1,5 @@
 #pragma once
-#include <cstdint>
-#include "Windows.h"
+#include "Utils/GlobalVars.hpp"
 
 struct Struct10317 {
 	DWORD Member1031A;

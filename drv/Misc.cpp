@@ -227,3 +227,20 @@ bool M::StopDriver(string var1)
 	return true;
 }
 
+int M::OpenDevice(string var1)
+{
+	string temp1 = "\\\\.\\" + var1;
+	int temp2 = (int)CreateFileA(temp1.c_str(), (G::var1026A | G::var1026B), 0, 0, G::var1026C, 128, 0);
+	return temp2;
+}
+
+int M::IOCTL_Code(int var1, int var2, int var3, int var4)
+{
+	int result = (var1 << 16) | (var4 << 14) | (var2 << 2) | (var3);
+	return result;
+}
+
+int	M::IOCTL_IO(int var1)
+{
+	return M::IOCTL_Code(34, var1, 0, 0);
+}

@@ -19,7 +19,7 @@ namespace M
 	
 	const char* DynamicName(string var1);
 
-	int IOCTL(uintptr_t var1, uintptr_t var2, uintptr_t var3, uintptr_t var4);
+	int IOCTL_Code(int var1, int var2, int var3, int var4);
 
 	DWORD64 GetStructPtr(Struct10317* var1);
 	DWORD64 GetStringPtr(string* var1);
