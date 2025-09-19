@@ -1,6 +1,7 @@
 #pragma once
 #include "Utils/GlobalVars.hpp"
 
+// these shitty structs were copied from a decompiled shit project
 struct Struct10317 {
 	DWORD Member1031A;
 	DWORD Member1031B;
@@ -16,7 +17,7 @@ struct Struct10318 {	// _SERVICE_STATUS
 	DWORD Member10322;	// dwServiceSpecificExitCode
 	DWORD Member10323;	// dwCheckPoint
 	DWORD Member10324;	// dwWaitHint
-};
+};						// SERVICE_STATUS, *LPSERVICE_STATUS
 
 struct Struct10319 {
 	DWORD Member10325;

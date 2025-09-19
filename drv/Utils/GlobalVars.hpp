@@ -2,6 +2,10 @@
 #include "Windows.h"
 #include <cstdint>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+#include <random>
+
 
 #ifndef GLOBALVARS_HPP
 #define GLOBALVARS_HPP

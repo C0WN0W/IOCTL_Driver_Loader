@@ -17,7 +17,7 @@ namespace M
 	bool RemoveDriver(const std::wstring& var1);
 	int  OpenDevice(string var1);
 	
-	const char* DynamicName(string var1);
+	const char* DynamicName();
 
 	int IOCTL_Code(int var1, int var2, int var3, int var4);
 

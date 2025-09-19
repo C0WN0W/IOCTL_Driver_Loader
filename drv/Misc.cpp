@@ -244,3 +244,28 @@ int	M::IOCTL_IO(int var1)
 {
 	return M::IOCTL_Code(34, var1, 0, 0);
 }
+
+const char* M::RandomLetter(int var1)
+{	
+	string word;
+	srand((unsigned)time(NULL) + var1);
+	for (int i = 0; i < var1; i++)
+	{
+		int temp1 = rand() % 52;
+		if (temp1 < 26)
+			word = word + (char)(65 + temp1);
+		else
+			word = word + (char)(97 + (temp1 - 26));
+	}
+	return word.c_str();
+}
+
+const char* M::DynamicName()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dis(1, 50);
+
+	string result = RandomLetter(3) + to_string(dis(gen)) + RandomLetter(3) + ".sys";
+	return result.c_str();
+}
