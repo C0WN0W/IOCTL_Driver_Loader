@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <random>
+#include <iostream>
+#include <fstream>
 
 
 #ifndef GLOBALVARS_HPP

@@ -227,10 +227,10 @@ bool M::StopDriver(string var1)
 	return true;
 }
 
-int M::OpenDevice(string var1)
+HANDLE M::OpenDevice(string var1)
 {
 	string temp1 = "\\\\.\\" + var1;
-	int temp2 = (int)CreateFileA(temp1.c_str(), (G::var1026A | G::var1026B), 0, 0, G::var1026C, 128, 0);
+	HANDLE temp2 = CreateFileA(temp1.c_str(), (G::var1026A | G::var1026B), 0, 0, G::var1026C, 128, 0);
 	return temp2;
 }
 

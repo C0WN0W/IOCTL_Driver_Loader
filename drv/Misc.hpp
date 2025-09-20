@@ -15,7 +15,7 @@ namespace M
 	bool StartDriver(string var1, string var2);
 	bool StopDriver(string var1);
 	bool RemoveDriver(const std::wstring& var1);
-	int  OpenDevice(string var1);
+	HANDLE  OpenDevice(string var1);
 	
 	const char* DynamicName();
 
